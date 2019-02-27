@@ -1,5 +1,6 @@
 package dk.cphbusiness.airport.template;
 
+import dk.cphbusiness.PassengerCounter;
 import dk.cphbusiness.algorithm.examples.queues.PriorityQueue;
 
 import java.util.ArrayList;
@@ -13,11 +14,13 @@ public class PassengerProducer {
     private int processingTicksLeft = 0;
     private Random randomizer = new Random();
     private Time lastDeartureTime;
+    private PassengerCounter statistics;
 
-    public PassengerProducer(List<Plane> planes, PriorityQueue<Passenger> queue) {
+    public PassengerProducer(List<Plane> planes, PriorityQueue<Passenger> queue, PassengerCounter statisticsHolder) {
         this.planes = planes;
         this.queue = queue;
         lastDeartureTime = planes.get(planes.size() - 1).getDepartureTime();
+        statistics = statisticsHolder;
     }
 
     public void tick(Clock clock) {
@@ -52,6 +55,7 @@ public class PassengerProducer {
 
         Passenger passenger = new Passenger(nextPassengerId++, now, category, plane);
         System.out.println("Passenger " + passenger + " added to queue");
+        statistics.addToAll(category);
         queue.enqueue(passenger);
 
         processingTicksLeft = randomizer.nextInt(120);

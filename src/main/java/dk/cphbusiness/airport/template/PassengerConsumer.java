@@ -36,11 +36,13 @@ public class PassengerConsumer {
                 System.out.println("Passenger " + passenger + " has boarded");
                 statistics.addToBoarded(passenger.getCategory());
             }
+            passenger = null;
         }
 
         if (queue.isEmpty()) return;
 
         passenger = queue.dequeue();
+
         switch (passenger.getCategory()) {
             case LateToFlight:
                 processingTicksLeft = 60;

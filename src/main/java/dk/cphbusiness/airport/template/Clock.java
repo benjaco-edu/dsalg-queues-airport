@@ -64,10 +64,10 @@ public class Clock implements Runnable {
 
 }
 /*
-LateToFlight - 91 in total, 0 boarded, 74 missed its flight17 still in airport
-BusinessClass - 84 in total, 81 boarded, 85 missed its flight-82 still in airport
-Disabled - 9 in total, 10 boarded, 10 missed its flight-11 still in airport
-Family - 38 in total, 37 boarded, 39 missed its flight-38 still in airport
-Monkey - 793 in total, 794 boarded, 794 missed its flight-795 still in airport
-
+LateToFlight    -  91 in total,  45 boarded,  29 missed its flight, 17 still in airport
+BusinessClass   -  98 in total,  98 boarded,   0 missed its flight, 0 still in airport
+Disabled        -  12 in total,  10 boarded,   0 missed its flight, 2 still in airport
+Family          -  39 in total,  33 boarded,   4 missed its flight, 2 still in airport
+Monkey          - 745 in total, 549 boarded, 141 missed its flight, 55 still in airport
+7.733530000000011
  */

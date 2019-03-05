@@ -33,7 +33,6 @@ public class PQMin <K extends Comparable> {
         while (2*index <= head) {
             int firstOrBiggest = index * 2;
 
-            // hvis firstOrBiggest er mindre end head og firstOrBiggest er større end secound firstOrBiggest, lav beregning på secound
             if( firstOrBiggest < head && bigger(pq.get(firstOrBiggest), pq.get(firstOrBiggest+1)) ) firstOrBiggest ++;
             if( bigger(pq.get(firstOrBiggest), pq.get(index)) ) break;
 

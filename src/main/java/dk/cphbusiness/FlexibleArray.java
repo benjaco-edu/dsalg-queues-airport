@@ -24,7 +24,7 @@ public class FlexibleArray<T> implements Iterable<T> {
         if (atIndex < 0) {
             throw new IllegalArgumentException();
         }
-        while (atIndex > data.length) {
+        while (atIndex > data.length -1) {
             doubleTheSize();
         }
         data[atIndex] = item;

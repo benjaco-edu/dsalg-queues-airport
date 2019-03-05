@@ -1,5 +1,6 @@
 package dk.cphbusiness.airport.template;
 
+import dk.cphbusiness.PQMin;
 import dk.cphbusiness.PassengerCounter;
 import dk.cphbusiness.algorithm.examples.queues.NotPrioritisingPassengerArrayQueue;
 import dk.cphbusiness.algorithm.examples.queues.PriorityQueue;
@@ -21,7 +22,8 @@ public class Program {
 
         PassengerCounter statistics = new PassengerCounter();
 
-        queue = new NotPrioritisingPassengerArrayQueue(10000);
+        queue = new PQMin();
+
         producer = new PassengerProducer(planes, queue, statistics);
         consumer = new PassengerConsumer(planes, queue, statistics);
         clock = new Clock(producer, consumer, new Time(05, 00, 00), statistics);

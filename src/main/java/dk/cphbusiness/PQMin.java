@@ -1,25 +1,15 @@
 package dk.cphbusiness;
 
-public class PQMin <K extends Comparable> {
+import dk.cphbusiness.airport.template.Passenger;
+import dk.cphbusiness.algorithm.examples.queues.PriorityQueue;
 
-    FlexibleArray<K> pq = new FlexibleArray<K>(32);
+import java.util.NoSuchElementException;
+
+public class PQMin implements PriorityQueue<Passenger> {
+
+    FlexibleArray<Passenger> pq = new FlexibleArray<Passenger>(32);
     int head = 0;
 
-
-    public void insert(K item) {
-        pq.set(++head, item);
-        swim(head);
-    }
-
-    public K popMin() {
-        K min = pq.get(1);
-
-        swap(1, head--);
-        pq.set(head + 1, null);
-        sink(1);
-
-        return min;
-    }
 
 
     private void swim(int index){
@@ -42,12 +32,47 @@ public class PQMin <K extends Comparable> {
     }
 
     private void swap(int a, int b){
-        K tmp = pq.get(a);
+        Passenger tmp = pq.get(a);
         pq.set(a, pq.get(b));
         pq.set(b, tmp);
     }
 
-    public boolean bigger(K a, K b){
+    public boolean bigger(Passenger a, Passenger b){
         return a.compareTo(b) > 0;
+    }
+
+    @Override
+    public void enqueue(Passenger item) {
+        pq.set(++head, item);
+        swim(head);
+    }
+
+    @Override
+    public Passenger dequeue() {
+        Passenger min = pq.get(1);
+
+        swap(1, head--);
+        pq.set(head + 1, null);
+        sink(1);
+
+        return min;
+    }
+
+    @Override
+    public Passenger peek() {
+        if (head == 0)
+            throw new NoSuchElementException("Cannot peek into empty queue");
+        return pq.get(1);
+
+    }
+
+    @Override
+    public int size() {
+        return head;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return head == 0;
     }
 }

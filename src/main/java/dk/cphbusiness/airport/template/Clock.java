@@ -43,8 +43,6 @@ public class Clock implements Runnable {
 
             for (Category category : Category.values()) {
 
-                // todo something is wrong, it can go to a negative number for people left
-
                 System.out.println(
                         String.format("%-15s",category)+" - "+
                                 String.format("%3s",statistics.allPassengers.get(category))+" in total, "+

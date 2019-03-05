@@ -23,7 +23,7 @@ public class PQMin <K extends Comparable> {
 
 
     private void swim(int index){
-        while (index > 1 && bigger(pq.get(index/2), pq.get(index))) { // pq index / 2 bigger end pg index
+        while (index > 1 && bigger(pq.get(index/2), pq.get(index))) { // pq index / 2 bigger than pg index
             swap(index, index / 2);
             index /= 2;
         }

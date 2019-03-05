@@ -1,12 +1,14 @@
 package dk.cphbusiness.airport.template;
 
 import dk.cphbusiness.PassengerCounter;
+import dk.cphbusiness.algorithm.examples.queues.PriorityQueue;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Clock implements Runnable {
     private final long sleepingTime = 10;
+    private final PriorityQueue<Passenger> queue;
     private boolean running = true;
     private final PassengerProducer producer;
     private final PassengerConsumer consumer;
@@ -14,9 +16,10 @@ public class Clock implements Runnable {
     private PassengerCounter statistics;
 
 
-    public Clock(PassengerProducer producer, PassengerConsumer consumer, Time startTime, PassengerCounter statisticsHolder) {
+    public Clock(PassengerProducer producer, PassengerConsumer consumer, Time startTime, PassengerCounter statisticsHolder, PriorityQueue<Passenger> queue) {
         this.producer = producer;
         this.consumer = consumer;
+        this.queue = queue;
         this.millis = startTime.getMillis();
 
         statistics = statisticsHolder;
@@ -53,6 +56,7 @@ public class Clock implements Runnable {
             }
 
 
+        System.out.println(queue.getTime());
 //        } catch (InterruptedException ex) {
 //            Logger.getLogger(Clock.class.getName()).log(Level.SEVERE, null, ex);
 //        }

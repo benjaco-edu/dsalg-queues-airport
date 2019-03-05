@@ -75,4 +75,9 @@ public class PQMin implements PriorityQueue<Passenger> {
     public boolean isEmpty() {
         return head == 0;
     }
+
+    @Override
+    public double getTime() {
+        return 0;
+    }
 }

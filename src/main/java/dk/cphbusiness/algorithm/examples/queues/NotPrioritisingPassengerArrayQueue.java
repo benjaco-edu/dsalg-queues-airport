@@ -49,4 +49,8 @@ public class NotPrioritisingPassengerArrayQueue implements PriorityQueue<Passeng
         return size;
     }
 
+    @Override
+    public double getTime() {
+        return 0;
+    }
 }

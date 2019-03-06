@@ -50,7 +50,12 @@ public class NotPrioritisingPassengerArrayQueue implements PriorityQueue<Passeng
     }
 
     @Override
-    public double getTime() {
-        return 0;
+    public String getEnTime() {
+        return null;
+    }
+
+    @Override
+    public String getDeTime() {
+        return null;
     }
 }

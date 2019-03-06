@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 
 public class PQMin implements PriorityQueue<Passenger> {
 
-    FlexibleArray<Passenger> pq = new FlexibleArray<Passenger>(32);
+    FlexibleArray<Passenger> pq = new FlexibleArray<Passenger>(32000);
     int head = 0;
 
 
@@ -77,7 +77,11 @@ public class PQMin implements PriorityQueue<Passenger> {
     }
 
     @Override
-    public double getTime() {
-        return 0;
+    public String getDeTime() {
+        return "";
+    }
+    @Override
+    public String getEnTime() {
+        return "";
     }
 }

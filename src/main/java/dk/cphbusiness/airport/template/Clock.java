@@ -1,10 +1,13 @@
 package dk.cphbusiness.airport.template;
 
+import dk.cphbusiness.PQTime;
 import dk.cphbusiness.PassengerCounter;
 import dk.cphbusiness.algorithm.examples.queues.PriorityQueue;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Clock implements Runnable {
     private final long sleepingTime = 10;
@@ -41,7 +44,7 @@ public class Clock implements Runnable {
 //                Thread.sleep(sleepingTime);
                 producer.tick(this);
                 consumer.tick(this);
-                millis += 1000;
+                millis += 100;
             }
 
             for (Category category : Category.values()) {
@@ -56,10 +59,36 @@ public class Clock implements Runnable {
             }
 
 
-        System.out.println(queue.getTime());
+        write("dataEn.txt", queue.getEnTime());
+        write("dataDe.txt", queue.getDeTime());
+
 //        } catch (InterruptedException ex) {
 //            Logger.getLogger(Clock.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+    }
+
+    public void write(String yourfilename, String yourstring){
+        BufferedWriter writer = null;
+        try
+        {
+            writer = new BufferedWriter( new FileWriter( yourfilename));
+            writer.write( yourstring);
+
+        }
+        catch ( IOException e)
+        {
+        }
+        finally
+        {
+            try
+            {
+                if ( writer != null)
+                    writer.close( );
+            }
+            catch ( IOException e)
+            {
+            }
+        }
     }
 
 }

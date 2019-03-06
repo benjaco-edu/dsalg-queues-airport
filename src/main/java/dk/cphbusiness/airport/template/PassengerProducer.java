@@ -54,11 +54,11 @@ public class PassengerProducer {
         else category = Category.Monkey;
 
         Passenger passenger = new Passenger(nextPassengerId++, now, category, plane);
-        System.out.println("Passenger " + passenger + " added to queue");
+//        System.out.println("Passenger " + passenger + " added to queue");
         statistics.addToAll(category);
         queue.enqueue(passenger);
 
-        processingTicksLeft = randomizer.nextInt(120);
+        processingTicksLeft = 1;
     }
 
 

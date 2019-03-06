@@ -29,11 +29,11 @@ public class PassengerConsumer {
             Time now = clock.getTime();
             if (passenger.getPlane().getDepartureTime().compareTo(now) < 0) {
                 passenger.setStatus(Status.MissedPlane);
-                System.out.println("Passenger " + passenger + " missed the plane");
+//                System.out.println("Passenger " + passenger + " missed the plane");
                 statistics.addToMissed(passenger.getCategory());
             } else {
                 passenger.setStatus(Status.Boarded);
-                System.out.println("Passenger " + passenger + " has boarded");
+//                System.out.println("Passenger " + passenger + " has boarded");
                 statistics.addToBoarded(passenger.getCategory());
             }
             passenger = null;

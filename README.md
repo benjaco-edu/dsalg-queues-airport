@@ -100,6 +100,10 @@ And as we can see, the queue had some overhead in the beginning, but kept the ti
 
 ![](https://github.com/benjaco-edu/dsalg-queues-airport/blob/master/dequeue.png?raw=true)
 
+![](https://github.com/benjaco-edu/dsalg-queues-airport/blob/master/dequeue10m.png?raw=true)
+
 ### Enqueue
 
 ![](https://github.com/benjaco-edu/dsalg-queues-airport/blob/master/enqueue.png?raw=true)
+
+![](https://github.com/benjaco-edu/dsalg-queues-airport/blob/master/enqueue10m.png?raw=true)
